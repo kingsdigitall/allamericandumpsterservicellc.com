@@ -1,0 +1,31 @@
+{
+  "title": "Our Simple Dumpster Rental Process",
+  "description": "",
+  "steps": [
+    {
+      "title": "Call or Book Online",
+      "description": "Reach out to us via phone or easily book your dumpster rental online. Tell us about your project, including the type of waste and the dumpster size you need."
+    },
+    {
+      "title": "Choose the Right Dumpster",
+      "description": "Our team will guide you through choosing the right dumpster size for your project, whether it's a small residential clean-up or a large construction site."
+    },
+    {
+      "title": "Quick and Convenient Delivery",
+      "description": "Once you confirm your order, we’ll schedule a same-day delivery or arrange a convenient time that fits your schedule."
+    },
+    {
+      "title": "Schedule Your Pickup - We're Just a Call Away!",
+      "description": "Once the dumpster is delivered, simply load it with your project’s waste, whether it's debris from home renovations, yard waste, or construction materials."
+    },
+    {
+      "title": "Easy Pickup and Disposal",
+      "description": "When you’re done, give us a call, and we’ll schedule prompt, hassle-free pick-up at a time that’s convenient for you."
+    },
+    {
+      "title": "Final Invoice",
+      "description": "After your dumpster is picked up, you’ll receive a clear, itemized invoice based on the exact size and rental period. There are no hidden fees, and the process is 100% transparent."
+    }
+
+  ]
+}
