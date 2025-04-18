@@ -220,7 +220,7 @@ const Hero = () => {
           h1={homeData.h1Banner}
           image={homeData.bannerImage}
           header={homeData.bannerQuote}
-          p1={homeData.p1Banner}
+          p1={homeData.metaDescription}
         />
         {/* poster */}
         {/* Section 1 */}

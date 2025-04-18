@@ -25,7 +25,7 @@ const page = () => {
      <Banner  h1={contentData.h1Banner}
           image={contentData.bannerImage}
           header={contentData.bannerQuote}
-          p1={contentData.p1Banner}    />
+          p1={contentData.metaDescription}    />
           {/* Content 1 */}
           <div className="">
             <div className="mt-20 text-minor text-4xl text-center">{contentData?.serviceTitle}</div>

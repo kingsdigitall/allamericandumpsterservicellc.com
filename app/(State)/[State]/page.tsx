@@ -87,7 +87,7 @@ export function generateMetadata({ params }: SubdomainPageProps) {
   const ContentData = cityData[State];
   return {
     title: ContentData?.metaTitle,
-    description: ContentData?.p1Banner,
+    description: `${ContentData?.metaDescription.replace("Call now for fast delivery!",`Call us at ${ContactInfo.No}`)}.`,
     alternates: {
       canonical: `https://${State}.${ContactInfo.host}`,
     },
@@ -161,7 +161,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
           h1={ContentData.h1Banner}
           image={ContentData.bannerImage}
           header={ContentData.bannerQuote}
-          p1={`Skip the hassle with our easy dumpster rental process in ${ContentData.name}. VR Dumpsters provides all the info you need to keep your project on track—perfect for both first-time renters and pros.`}
+          p1={`${ContentData?.metaDescription.replace("Call now for fast delivery!",`Call us at ${ContactInfo.No}`)}.`}
         />
         {/* Section 1 */}
         {/* <p>{subDomain.map((item:any)=>(
