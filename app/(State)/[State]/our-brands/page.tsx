@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Image from "next/image";
 import Link from "next/link";
+import NavbarState from "@/app/components/State/NavbarState";
 
 export const metadata: Metadata = {
   title: {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
+      <NavbarState/>
       <Banner
         h1={contentData.h1Banner}
         image={contentData.bannerImage}
@@ -38,7 +40,7 @@ const page = () => {
           <Image
             height={10000}
             width={10000}
-            src={`/${contentData.h2Image}`}
+            src={`${contentData.h2Image}`}
             className=" h-full w-full rounded-lg object-cover shadow-lg"
             alt={contentData.h2Image.split(".")[0]}
             title={

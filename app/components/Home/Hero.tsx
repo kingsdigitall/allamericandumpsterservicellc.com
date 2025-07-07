@@ -239,7 +239,7 @@ const Hero = () => {
             <Image
               height={10000}
               width={10000}
-              src={`/${homeData.h2Image}`}
+              src={`${homeData.h2Image}`}
               className="h-full w-full rounded-lg object-cover shadow-lg"
               alt={homeData.h2Image.split(".")[0]}
               title={homeData.h2Image.split(".")[0]}
@@ -316,7 +316,7 @@ const Hero = () => {
               <Image
                 height={500}
                 width={500}
-                src={`/${homeData.h3Image}`}
+                src={`${homeData.h3Image}`}
                 className="h-96 w-full overflow-hidden object-cover"
                 alt="standing-and-holding-notepad-plumber-in-blue-uniform"
                 title="standing-and-holding-notepad-plumber-in-blue-uniform"
