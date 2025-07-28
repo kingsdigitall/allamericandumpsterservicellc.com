@@ -23,7 +23,7 @@ const TypeOfDumpster = () => {
             <div className="flex h-60 justify-center object-cover">
               <Image
                 aria-hidden="true"
-                src={`/${items.imageUrl}`}
+                src={`${items.imageUrl}`}
                 alt={`${items.imageUrl.split(".")[0]}`}
                 title={`${items.imageUrl.split(".")[0]}`}
                 width="900"

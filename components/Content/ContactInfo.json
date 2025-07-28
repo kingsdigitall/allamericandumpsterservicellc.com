@@ -4,5 +4,9 @@
   "mail": "",
   "baseUrl": "https://allamericandumpsterservicellc.com/",
   "host": "allamericandumpsterservicellc.com",
-  "name": "All American Dumpster Rental Experts"
+  "name": "All American Dumpster Rental Experts",
+    "address":"140 E Broadway Ave #25, Jackson, WY 83001, United States",
+    "location": "USA",
+     "service": "Dumpster Service",
+     "logoImage": "https://ik.imagekit.io/serviceproviders/allamericandumpsterservicellc.com/logo.png?updatedAt=1751879045397"
 }

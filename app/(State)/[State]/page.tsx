@@ -87,7 +87,7 @@ export function generateMetadata({ params }: SubdomainPageProps) {
   const ContentData = cityData[State];
   return {
     title: ContentData?.metaTitle,
-    description: `${ContentData?.metaDescription.replace("Call now for fast delivery!",`Call us at ${ContactInfo.No}`)}.`,
+    description: `${ContentData?.metaDescription.replace("Call now for fast delivery!", `Call us at ${ContactInfo.No}`)}.`,
     alternates: {
       canonical: `https://${State}.${ContactInfo.host}`,
     },
@@ -152,16 +152,83 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
     groupedByState[abbrevations]?.cities
       .map((city) => city)
       .filter((city) => city.slug !== State) || [];
-      // console.log(abbrevations)
+  // console.log(abbrevations)
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: `${ContactInfo.name}`,
+        image: `${ContactInfo.logoImage}`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: `${stateName[abbrevations.toUpperCase()]} ${ContactInfo.service}`,
+          addressLocality: `${ContentData?.name}, ${abbrevations.toUpperCase()}`,
+          addressRegion: stateName[abbrevations.toUpperCase()],
+          postalCode: ContentData?.zipCodes?.split("|")[0] || "",
+          addressCountry: "US",
+        },
+        review: {
+          "@type": "Review",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "4.9",
+            bestRating: "5",
+          },
+          author: {
+            "@type": "Person",
+            name: `${stateName[abbrevations.toUpperCase()]} ${ContactInfo.service}`,
+          },
+        },
+        telephone: ContactInfo.No,
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "20:00",
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: `${ContactInfo.service} in ${ContentData?.name}, ${abbrevations.toUpperCase()}`,
+        brand: {
+          "@type": "Brand",
+          name: `${ContactInfo.service} ${ContentData?.name}, ${abbrevations.toUpperCase()} Pros`,
+        },
+        description: `${ContentData?.metaDescription
+          ?.split("[location]")
+          .join(ContentData?.name || ContactInfo.location)
+          ?.split("[phone]")
+          .join(ContactInfo.No)}`,
+        url: `https://${State}.${ContactInfo.host}`,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          reviewCount: 7,
+          ratingValue: 4.802,
+        },
+      },
+    ],
+  };
   return (
     <div className="">
+      <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>
       <NavbarState />
       <div className="mx-auto max-w-[2100px] overflow-hidden">
         <Banner
           h1={ContentData.h1Banner}
           image={ContentData.bannerImage}
           header={ContentData.bannerQuote}
-          p1={`${ContentData?.metaDescription.replace("Call now for fast delivery!",`Call us at ${ContactInfo.No}`)}.`}
+          p1={`${ContentData?.metaDescription.replace("Call now for fast delivery!", `Call us at ${ContactInfo.No}`)}.`}
         />
         {/* Section 1 */}
         {/* <p>{subDomain.map((item:any)=>(
@@ -172,7 +239,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
             <Image
               height={1000}
               width={1000}
-              src={`/${ContentData?.h2Image}`}
+              src={`${ContentData?.h2Image}`}
               className="h-[400px] w-full  rounded-lg object-cover shadow-lg"
               alt={ContentData?.h2Image.split(".")[0]}
             />
@@ -203,7 +270,8 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
                   Commercial {ContactInfo.name} Services
                 </h4>
                 <p>
-                  Commercial Dumpster Rental Services in {ContentData?.name}, {abbrevations.toUpperCase()}.
+                  Commercial Dumpster Rental Services in {ContentData?.name},{" "}
+                  {abbrevations.toUpperCase()}.
                 </p>
               </div>
             </div>
@@ -272,7 +340,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         ) : null}
         {/* Needs  */}
         <div className="mt-14 md:mt-28">
-          <ProcessWidget/>
+          <ProcessWidget />
         </div>
         {/* Section 4 */}
         {ContentData.h5 && (
@@ -290,7 +358,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               <Image
                 height={10000}
                 width={10000}
-                src={`/${ContentData.h5Image}`}
+                src={`${ContentData.h5Image}`}
                 className=" h-[16rem] w-full rounded-lg object-cover shadow-lg"
                 alt={ContentData.h5Image.split(".")[0]}
                 title={ContentData.h5Image.split(".")[0]}

@@ -48,7 +48,7 @@ const Service = ({ value = "" }: any) => {
               <div className="h-14 w-14 overflow-hidden rounded-full object-cover md:h-full md:w-full md:rounded-none">
                 <Image
                   aria-hidden="true"
-                  src={`/${items.imageUrl}`}
+                  src={`${items.imageUrl}`}
                   alt={
                     items.imageUrl.split(".")[0] || "image"
                   }
