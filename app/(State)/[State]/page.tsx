@@ -601,7 +601,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         {/* CounterCta */}
         {/* CounterCta */}
         {/* Reviews */}
-        <ReviewWidget />
+        <ReviewWidget value={State} />
         {/* {
         ContentData.reviews ? (
           <div className=" overflow-hidden  ">
