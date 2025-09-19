@@ -6,8 +6,8 @@ import { MdOutlineRoofing } from "react-icons/md";
 const CallButtonMobile = () => {
   return (
     <div>
-      <div className=" fixed  w-full md:block z-[200]">
-        <div className="group fixed bottom-0 flex w-full items-center justify-center bg-main py-2 transition duration-200 ease-in group px-2  mx-auto ">
+      <div className=" fixed  w-full md:block z-[200] ">
+        <div className="group fixed bottom-0 max-w-[140rem]  flex w-full items-center justify-center bg-main py-2 transition duration-200 ease-in group px-2  mx-auto ">
           <div className="p-2 bg-main rounded-full -mt-8" >
           </div>
           <a id="cta-id" href={`tel:${ContactInfo.tel}`} className="w-fit text-center">

@@ -133,64 +133,20 @@ const page = () => {
         </div>
         {/* Content1 */}
         {/* -----------------------------------------a Conversation Start ------------------------ */}
-        <div className="">
-          <div className="mt-16">
-            <div className={`text-center text-4xl font-extrabold text-main`}>
-              Let&apos;s Start a Conversation
-            </div>
-            <div className="border-double  text-center">
-              <a id="cta-id" href={`tel:${ContactInfo.tel}`}>
-                <button
-                id='cta-id'
-                  className={` mt-3 rounded-lg bg-main px-4 py-3 font-bold tracking-wide text-white     shadow-lg hover:bg-minor`}
-                >
-                  {ContactInfo.No}
-                </button>
-              </a>
-            </div>
+        {/* Let's Start a Conversation */}
+        <div className="mt-16">
+          <div className="text-center text-4xl font-extrabold text-main">
+            Have a business enquiry? Contact us today!
           </div>
-          {/* Content 2 */}
-          <div className="mt-16 grid w-full grid-cols-1  gap-6 px-4 md:grid-cols-2 md:px-24">
-            <div className=" flex w-full flex-col justify-around gap-3   ">
-              <div className="">
-                <h2 className="text-3xl font-bold">{contentData?.h3}</h2>
-                <p
-                  className="mt-10  text-justify"
-                  dangerouslySetInnerHTML={{ __html: contentData.p3 }}
-                ></p>
-              </div>
-            </div>
-            <div className="">
-              <Image
-                src={`${contentData.h3Image}`}
-                className="h-[350px] w-full rounded-lg border object-cover  shadow-lg"
-                alt={contentData.h3Image.split(".")[0]}
-                width={1000}
-                height={500}
-              />
-            </div>
-          </div>
-          {/* Content 2 */}
-          <div className="group mx-4 mt-16 flex w-11/12 flex-col items-center justify-center gap-6 px-10 md:mx-0 md:mb-4 md:flex-row md:space-x-2 xl:w-full  ">
-            <Image
-              aria-hidden="true"
-              src="/img1.png"
-              alt="Calling icon "
-              width="200"
-              height="200"
-              className="duration-300  ease-in group-hover:-translate-y-4"
-            />
-            <Link
-              id="cta-id"
-              href={`tel:${ContactInfo.tel}`}
-              className="grid w-full place-items-center"
-            >
-              <div
-              id='cta-id'
-                className="  m-h-64 w-[90%]  transform rounded-lg bg-white  p-2 text-center text-2xl font-semibold ring ring-main transition  duration-300 ease-in hover:shadow-xl hover:shadow-minor group-hover:translate-y-4  "
-                dangerouslySetInnerHTML={{ __html: contentData.ctaText }}
-              ></div>
-            </Link>
+          <div className="border-double text-center">
+            <a id="cta-id" href={`mailto:${ContactInfo.mail}`}>
+              <button
+                id="cta-id"
+                className="mt-3 rounded-lg bg-main px-4 py-3 font-bold tracking-wide text-white shadow-lg hover:bg-minor"
+              >
+                {ContactInfo.mail}
+              </button>
+            </a>
           </div>
         </div>
         {/* -----------------------------------------a Conversation End------------------------ */}

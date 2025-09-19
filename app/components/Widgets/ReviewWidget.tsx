@@ -8,18 +8,24 @@ import Testimonials from "@/components/Content/Reviews.json";
 import content from "@/components/Content/subDomainUrlContent.json";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 
-
 interface Review {
   id: number;
   name: string;
   content: string;
 }
 
-interface ReviewWidgetProps {
-  value?: string;
+// Define type for content items
+interface ContentItem {
+  name?: string;
+  [key: string]: any;
 }
 
-const ReviewWidget: React.FC<ReviewWidgetProps> = ({ value = "" }) => {
+interface ReviewWidgetProps {
+  value?: string;
+  neighborhood?: string;
+}
+
+const ReviewWidget: React.FC<ReviewWidgetProps> = ({ value = "", neighborhood = "" }) => {
   const [shuffledTestimonials, setShuffledTestimonials] = useState(Testimonials);
 
   useEffect(() => {
@@ -27,13 +33,26 @@ const ReviewWidget: React.FC<ReviewWidgetProps> = ({ value = "" }) => {
     setShuffledTestimonials([...Testimonials].sort(() => 0.5 - Math.random()));
   }, []);
 
-  const contentData: { name: string } = content[value as keyof typeof content];
-  const abbrevation = value?.split("-").pop()?.toUpperCase();
-  const StateName = contentData?.name
-    ? abbrevation
-      ? `${contentData.name}, ${abbrevation}`
-      : contentData.name
-    : "USA";
+  // Determine location name based on props
+  let locationName = "USA";
+  
+  if (neighborhood) {
+    // If neighborhood is provided, use it as the location name
+    // Format the neighborhood name (convert hyphens to spaces and capitalize words)
+    locationName = neighborhood
+      .split("-")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  } else if (value) {
+    // If only value (state) is provided, use state name
+    const contentData = content[value as keyof typeof content] as ContentItem | undefined;
+    const abbrevation = value?.split("-").pop()?.toUpperCase();
+    locationName = contentData?.name
+      ? abbrevation
+        ? `${contentData.name}, ${abbrevation}`
+        : contentData.name
+      : "USA";
+  }
 
   const settings = {
     dots: true,
@@ -94,7 +113,7 @@ const ReviewWidget: React.FC<ReviewWidgetProps> = ({ value = "" }) => {
               />
             </div>
             <div className="mt-4">
-              {item.Review.split("[location]").join(StateName)}
+              {item.Review.split("[location]").join(locationName)}
             </div>
           </div>
         ))}
