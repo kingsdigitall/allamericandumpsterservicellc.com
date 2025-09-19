@@ -36,7 +36,7 @@ const Navbar = () => {
                     <Link
                       href={
                         item.toLowerCase() === "home"
-                          ? ``
+                          ? `/`
                           : `/${item.toLowerCase().split(" ").join("-")}`
                       }
                       className="under  text-gray-900 decoration-minor decoration-2  duration-150 ease-in-out hover:underline "
@@ -48,7 +48,7 @@ const Navbar = () => {
                 ),
               )}
             </ul>
-            <div className="  hidden items-center justify-center lg:flex   ">
+            <div className="  hidden items-center justify-center lg:flex">
               <a id="cta-id" href={`tel:${ContactInfo.tel}`}>
                 <button
                   id="cta-id"
